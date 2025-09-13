@@ -1,0 +1,100 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: #fff;
+  border-bottom: 1px solid #e0e0e0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  min-height: 60px;
+}
+
+.back-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: #f8f9fa;
+  color: #333;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-right: 1rem;
+}
+
+.back-button:hover {
+  background: #e9ecef;
+  transform: translateX(-2px);
+}
+
+.back-button:active {
+  transform: translateX(-1px);
+}
+
+.page-title {
+  flex: 1;
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #333;
+  text-align: center;
+}
+
+.header-spacer {
+  width: 40px;
+  margin-left: 1rem;
+}
+
+/* 모바일 대응 */
+@media (max-width: 768px) {
+  .header-content {
+    padding: 0.75rem 1rem;
+    min-height: 56px;
+  }
+
+  .back-button {
+    width: 36px;
+    height: 36px;
+    margin-right: 0.75rem;
+  }
+
+  .page-title {
+    font-size: 1.1rem;
+  }
+
+  .header-spacer {
+    width: 36px;
+    margin-left: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-content {
+    padding: 0.5rem 0.75rem;
+    min-height: 52px;
+  }
+
+  .back-button {
+    width: 32px;
+    height: 32px;
+    margin-right: 0.5rem;
+  }
+
+  .page-title {
+    font-size: 1rem;
+  }
+
+  .header-spacer {
+    width: 32px;
+    margin-left: 0.5rem;
+  }
+}

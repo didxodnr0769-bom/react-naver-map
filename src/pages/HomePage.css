@@ -1,54 +1,233 @@
 .home-page {
-  padding: 2rem;
+  flex: 1;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: calc(100vh - 60px);
+  padding: 2rem 1rem;
+}
+
+.home-content {
   max-width: 1200px;
   margin: 0 auto;
 }
 
-.home-page h1 {
+.welcome-section {
   text-align: center;
-  color: #333;
-  margin-bottom: 0.5rem;
+  margin-bottom: 3rem;
+  color: white;
 }
 
-.home-page p {
-  text-align: center;
-  color: #666;
-  margin-bottom: 3rem;
+.welcome-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.welcome-section h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0 0 1rem 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.welcome-section p {
+  font-size: 1.2rem;
+  margin: 0;
+  opacity: 0.9;
+  font-weight: 300;
 }
 
 .test-buttons {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 1.5rem;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
 .test-button {
-  display: block;
+  display: flex;
+  align-items: center;
   padding: 1.5rem;
-  background: #fff;
-  border: 2px solid #e0e0e0;
-  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border: none;
+  border-radius: 16px;
   text-decoration: none;
   color: #333;
   transition: all 0.3s ease;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.test-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  transition: left 0.5s;
+}
+
+.test-button:hover::before {
+  left: 100%;
 }
 
 .test-button:hover {
-  border-color: #007bff;
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  background: rgba(255, 255, 255, 1);
+}
+
+.test-button:active {
   transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
-.test-button h3 {
+.button-icon {
+  font-size: 2rem;
+  margin-right: 1rem;
+  flex-shrink: 0;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  border-radius: 12px;
+  filter: grayscale(0.3);
+  transition: all 0.3s ease;
+}
+
+.test-button:hover .button-icon {
+  filter: grayscale(0);
+  transform: scale(1.1);
+}
+
+.button-content {
+  flex: 1;
+}
+
+.button-content h3 {
   margin: 0 0 0.5rem 0;
-  color: #007bff;
+  color: #333;
   font-size: 1.2rem;
+  font-weight: 600;
 }
 
-.test-button p {
+.button-content p {
   margin: 0;
   color: #666;
   font-size: 0.9rem;
-  text-align: left;
+  line-height: 1.4;
+}
+
+/* 모바일 대응 */
+@media (max-width: 768px) {
+  .home-page {
+    padding: 1.5rem 1rem;
+    min-height: calc(100vh - 56px);
+  }
+
+  .welcome-section {
+    margin-bottom: 2rem;
+  }
+
+  .welcome-icon {
+    font-size: 3rem;
+  }
+
+  .welcome-section h2 {
+    font-size: 2rem;
+  }
+
+  .welcome-section p {
+    font-size: 1rem;
+  }
+
+  .test-buttons {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .test-button {
+    padding: 1.25rem;
+    border-radius: 12px;
+  }
+
+  .button-icon {
+    font-size: 1.5rem;
+    width: 40px;
+    height: 40px;
+    margin-right: 0.75rem;
+    border-radius: 8px;
+  }
+
+  .button-content h3 {
+    font-size: 1.1rem;
+  }
+
+  .button-content p {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-page {
+    padding: 1rem 0.75rem;
+    min-height: calc(100vh - 52px);
+  }
+
+  .welcome-section {
+    margin-bottom: 1.5rem;
+  }
+
+  .welcome-icon {
+    font-size: 2.5rem;
+  }
+
+  .welcome-section h2 {
+    font-size: 1.75rem;
+  }
+
+  .welcome-section p {
+    font-size: 0.9rem;
+  }
+
+  .test-button {
+    padding: 1rem;
+    border-radius: 10px;
+  }
+
+  .button-icon {
+    font-size: 1.25rem;
+    width: 36px;
+    height: 36px;
+    margin-right: 0.5rem;
+    border-radius: 6px;
+  }
+
+  .button-content h3 {
+    font-size: 1rem;
+  }
+
+  .button-content p {
+    font-size: 0.8rem;
+  }
 }
