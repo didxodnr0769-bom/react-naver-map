@@ -1,17 +1,28 @@
-import { useState } from "react";
-import NaverMap from "./components/map/NaverMap";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import HomePage from "./pages/HomePage";
+import BasicTestPage from "./pages/BasicTestPage";
+import ZoomFixedTestPage from "./pages/ZoomFixedTestPage";
+import MarkerTestPage from "./pages/MarkerTestPage";
+import InfoWindowTestPage from "./pages/InfoWindowTestPage";
+import PolylineTestPage from "./pages/PolylineTestPage";
+import PolygonTestPage from "./pages/PolygonTestPage";
 import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
-    <>
-      <div>
-        <h1>네이버 지도 API 연동하기 (React 18 + Vite)</h1>
-        <NaverMap />
+    <Router>
+      <div className="app">
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/basic" element={<BasicTestPage />} />
+          <Route path="/zoom-fixed" element={<ZoomFixedTestPage />} />
+          <Route path="/marker-test" element={<MarkerTestPage />} />
+          <Route path="/info-window" element={<InfoWindowTestPage />} />
+          <Route path="/polyline" element={<PolylineTestPage />} />
+          <Route path="/polygon" element={<PolygonTestPage />} />
+        </Routes>
       </div>
-    </>
+    </Router>
   );
 }
 

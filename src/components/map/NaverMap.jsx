@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 
-const NaverMap = () => {
+const NaverMap = (props) => {
+  const { mapOptions } = props;
   // useRef를 사용하여 지도를 담을 DOM 요소를 참조합니다.
   const mapElement = useRef(null);
 
@@ -11,14 +12,14 @@ const NaverMap = () => {
 
     // 지도의 초기 위치와 줌 레벨을 설정합니다.
     const location = new naver.maps.LatLng(37.5665, 126.978); // 서울 시청
-    const mapOptions = {
-      center: location,
-      zoom: 17, // 줌 레벨
-      zoomControl: true, // 줌 컨트롤 표시
-      zoomControlOptions: {
-        position: naver.maps.Position.TOP_RIGHT, // 줌 컨트롤 위치
-      },
-    };
+    // const mapOptions = {
+    //   center: location,
+    //   zoom: 17, // 줌 레벨
+    //   zoomControl: true, // 줌 컨트롤 표시
+    //   zoomControlOptions: {
+    //     position: naver.maps.Position.TOP_RIGHT, // 줌 컨트롤 위치
+    //   },
+    // };
 
     // 지도를 생성합니다.
     const map = new naver.maps.Map(mapElement.current, mapOptions);
