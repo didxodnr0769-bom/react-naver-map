@@ -1,10 +1,22 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite + React</title>
+
+    <!-- Naver Map API -->
+    <!-- 25년 7월 이전 방법 : 무료 이용 중단 -->
+    <!-- <script
+      type="text/javascript"
+      src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=%VITE_NAVER_MAP_CLIENT_ID%"
+    ></script> -->
+    <!-- 25년 7월 이후 방법 -->
+    <script
+      type="text/javascript"
+      src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=%VITE_NAVER_MAP_CLIENT_ID%"
+    ></script>
   </head>
   <body>
     <div id="root"></div>
